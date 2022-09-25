@@ -15,26 +15,45 @@
       <label for="">Até</label>
       <input pInputText type="text" style="width: 95px;">
     </div>
-
+    <br>
     <div class="ui-g-12">
       <button pButton type="submit">Pesquisar</button>
+    </div>
+    <br>
+    <div class="ui-g">
+      <div class="ui-g-12">
+        <p-table [value]="lancamentos" responsiveLayout="scroll">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Pessoa</th>
+              <th>Descrição</th>
+              <th>Valor</th>
+              <th>Vencimento</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-lancamento>
+            <tr>
+              <td>{{lancamento.pessoa}}</td>
+              <td>{{lancamento.descricao}}</td>
+              <td class="col-valor">
+                <ng-template  pTemplate="body">
+                  {{lancamento.valor}}
+                  <span [ngStyle]="{ color : lancamento.tipo === 'DESPESA' ? 'red' :'blue' }">
+                    {{lancamento.valor}}
+                  </span>
+                </ng-template>                
+              </td>
+              <td class="col-data">{{lancamento.dataVencimento}}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+      <br>
+      <div class="ui-g-12">
+        <a pButton label="Novo lançamento"></a>
+      </div>
     </div>
 
   </div>
 </div>
-<!--
-<div class="surface-section px-4 py-5 md:px-6 lg:px-8">
-  <div class="flex align-items-start flex-column lg:justify-content-between lg:flex-row">
-      <div>
-          <div class="font-medium text-3xl text-900">Lançamentos</div>
-          <div class="flex align-items-center text-700 flex-wrap">
-          </div>
-      </div>
 
-      <div class="mt-3 lg:mt-0">
-          <button pButton pRipple label="Add" class="p-button-outlined mr-2" icon="pi pi-user-plus"></button>
-          <button pButton pRipple label="Save" icon="pi pi-check"></button>
-      </div>
-  </div>
-</div>
--->
