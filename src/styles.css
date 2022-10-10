@@ -32,3 +32,18 @@ button{
   width: 120px;
   text-align: center;
 }
+
+.col-acoes{
+  width: 90px;
+  text-align: center;
+  display: inline;
+  padding:5px;
+}
+
+.col-acoes a{
+  margin:5px;
+}
+
+.col-acoes button{
+  margin:5px;
+}
